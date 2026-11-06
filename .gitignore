@@ -1,0 +1,7 @@
+# Altium temp and history files
+History/
+__Previews/
+Project Logs for */
+*.PrjPcbStructure
+*.$$$
+*.~*

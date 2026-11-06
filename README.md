@@ -31,10 +31,12 @@ This is a wireless assistive device that turns Kindle pages without the user tou
 - Custom footprints
 - Power management for servo loads
 
-| Board | Schematic | Gerbers | BOM |
-|---|---|---|---|
-| TX | [`tx_schematic.pdf`](hardware/pcb/tx/tx_schematic.pdf) | [`tx_gerbers.zip`](hardware/pcb/tx/tx_gerbers.zip) | [`tx_bom.csv`](hardware/pcb/tx/tx_bom.csv) |
-| RX | [`rx_schematic.pdf`](hardware/pcb/rx/rx_schematic.pdf) | [`rx_gerbers.zip`](hardware/pcb/rx/rx_gerbers.zip) | [`rx_bom.csv`](hardware/pcb/rx/rx_bom.csv) |
+| Board | Schematic | Altium project | Gerbers | BOM |
+|---|---|---|---|---|
+| TX | [`tx_schematic.pdf`](hardware/pcb/tx/tx_schematic.pdf) | [`tx/altium/`](hardware/pcb/tx/altium/) | [`tx_gerbers.zip`](hardware/pcb/tx/tx_gerbers.zip) | [`tx_bom.xlsx`](hardware/pcb/tx/tx_bom.xlsx) |
+| RX | [`rx_schematic.pdf`](hardware/pcb/rx/rx_schematic.pdf) | [`rx/altium/`](hardware/pcb/rx/altium/) | [`rx_gerbers.zip`](hardware/pcb/rx/rx_gerbers.zip) | [`rx_bom.xlsx`](hardware/pcb/rx/rx_bom.xlsx) |
+
+Shared schematic/footprint libraries: [`hardware/pcb/libraries/`](hardware/pcb/libraries/). `Kindle_Custom.PcbLib` and `SolderPad.SchLib` are custom; the XIAO ESP32-C3 library is from Seeed Studio and the MiniBoost library is from Adafruit.
 
 ### Enclosure
 _In progress._ Planned: Kindle edge mount, PCB and servo mounts, external switch access. CAD will go in [`hardware/enclosure/`](hardware/enclosure/).
