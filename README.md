@@ -1,73 +1,75 @@
 # Wireless Kindle Page Turner
 
-Compact wireless page-turning device using ESP32-C3 microcontrollers, custom PCBs, servo actuation, and a 3D-printed enclosure.
+Compact wireless page-turning device built on two ESP32-C3 boards, custom PCBs, servo actuation, and a 3D-printed enclosure.
+
+## Demo
+
+_Video coming soon._
 
 ## Overview
 
-This project is a wireless assistive device designed to remotely turn Kindle pages without directly touching the screen.
+This is a wireless assistive device that turns Kindle pages without the user touching the screen. A handheld **TX** button sends a wireless command to an **RX** unit clipped to the Kindle. The RX unit drives a servo that sweeps a conductive stylus across the touchscreen.
 
-The system uses two custom PCBs:
-- TX controller for user input and wireless transmission
-- RX controller for servo control and touchscreen interaction
+## System Block Diagram
 
-## Hardware Design
+## Hardware
 
 ### TX Board
-
 - Seeed Studio XIAO ESP32-C3
 - Push-button input
-- Wireless communication
+- Wireless transmission
 
 ### RX Board
-
 - Seeed Studio XIAO ESP32-C3
 - Adafruit MiniBoost 5V 1A
 - LiPo battery system
 - Servo interface
 - Conductive stylus connection
 
-## PCB Design
-
-Designed in Altium Designer:
-
-- Custom schematics
-- Two-layer PCB layouts
+### PCB Design (Altium Designer)
+- Two-layer layouts with ground planes
 - Custom footprints
-- Ground plane routing
 - Power management for servo loads
-- Gerber and BOM generation
 
-## Mechanical Design
+| Board | Schematic | Gerbers | BOM |
+|---|---|---|---|
+| TX | [`tx_schematic.pdf`](hardware/pcb/tx/tx_schematic.pdf) | [`tx_gerbers.zip`](hardware/pcb/tx/tx_gerbers.zip) | [`tx_bom.csv`](hardware/pcb/tx/tx_bom.csv) |
+| RX | [`rx_schematic.pdf`](hardware/pcb/rx/rx_schematic.pdf) | [`rx_gerbers.zip`](hardware/pcb/rx/rx_gerbers.zip) | [`rx_bom.csv`](hardware/pcb/rx/rx_bom.csv) |
 
-3D printed enclosure in progress.
-
-Planned features:
-- Kindle edge mounting
-- PCB mounting
-- Servo mounting
-- External switch access
+### Enclosure
+_In progress._ Planned: Kindle edge mount, PCB and servo mounts, external switch access. CAD will go in [`hardware/enclosure/`](hardware/enclosure/).
 
 ## Firmware
 
-Firmware development in progress.
+_In progress._ Planned: wireless TX/RX link, servo control, power management.
 
-Planned:
-- Wireless TX/RX communication
-- Servo control
-- Power management
+- TX: [`firmware/tx/`](firmware/tx/)
+- RX: [`firmware/rx/`](firmware/rx/)
+
+## Results
+
+| Metric | Target | Measured | Notes |
+|---|---:|---:|---|
+| Page-turn success rate | ___ % | ___ / ___ (___ %) | |
+| Button-to-turn latency | < ___ ms | ___ ms | |
+| Wireless range (line of sight) | ___ m | ___ m | |
+| RX battery life (turns per charge) | ___ | ___ | |
+| RX idle current | ___ mA | ___ mA | |
+| Servo peak current | ___ A | ___ A | |
+| Device mass (RX unit) | ___ g | ___ g | |
+
+Raw data: [`docs/testing/`](docs/testing/)
 
 ## Project Status
 
-Completed:
-- TX PCB design
-- RX PCB design
+**Completed**
+- TX and RX PCB design
 - PCB fabrication files
 
-Current:
-- PCB ordered
-- Awaiting assembly and hardware testing
+**Current**
+- PCBs ordered, awaiting assembly and hardware testing
 
-Future:
-- Firmware testing
+**Next**
+- Firmware bring-up and testing
 - Enclosure design
-- Full Kindle integration
+- Full Kindle integration and results
