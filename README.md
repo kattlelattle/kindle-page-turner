@@ -4,7 +4,7 @@ Compact wireless page-turning device built on two ESP32-C3 boards, custom PCBs, 
 
 ## Demo
 
-[Watch the demo video](docs/demo.mp4): the remote turns pages on a Kindle Paperwhite.
+[Watch the demo video](docs/demo.mp4): the remote turns pages on a Kindle Paperwhite!
 
 ## Overview
 
@@ -69,9 +69,9 @@ Requires the ESP32 board package and the ESP32Servo library.
 | Metric | Result | Notes |
 |---|---:|---|
 | TX standby current | 50 µA | Deep sleep, measured in series with the battery |
-| TX standby life (estimate) | ~14 months | 500 mAh battery at 50 µA |
+| TX standby life (estimate) | ~11 months | 400 mAh battery at 50 µA |
 | RX idle current | 30 mA | BLE advertising, servo detached |
-| RX run time (estimate) | ~33 hours | 1000 mAh battery at 30 mA |
+| RX run time (estimate) | ~40 hours | 1200 mAh battery at 30 mA |
 | Page-turn success rate | 50 / 50 (100%) | Consecutive button presses |
 | Button-to-turn latency | | First press vs. while connected |
 | Wireless range | > 10 m | Tested indoors |
