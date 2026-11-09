@@ -2,6 +2,10 @@
 
 Compact wireless page-turning device built on two ESP32-C3 boards, custom PCBs, servo actuation, and a 3D-printed enclosure.
 
+<p align="center">
+  <img src="docs/images/main.jpg" alt="Page turner clipped to a Kindle with the remote" width="560">
+</p>
+
 ## Demo
 
 [Watch the demo video](docs/demo.mp4): the remote turns pages on a Kindle Paperwhite!
@@ -46,6 +50,18 @@ Both enclosures were 3D printed in PLA on a Bambu Lab printer. All parts print w
 **TX remote:** a rounded handheld case with finger grooves on the sides, a thumb recess around the button, and a press-fit lid. The battery sits under the PCB.
 
 **RX unit:** clips onto the right edge of the Kindle (Paperwhite 11th gen in a case), lined with felt for grip. The electronics box sits behind the Kindle, and the servo is mounted outside the edge with a hook-shaped arm that reaches over the bezel to tap the screen. The lid snaps into grooves in the box.
+
+<p align="center">
+  <img src="docs/images/rx_side.jpg" alt="RX unit on the edge of the Kindle" width="620">
+</p>
+
+<p align="center">
+  <img src="docs/images/remote_hand.jpg" alt="TX remote in hand" width="230">
+  &nbsp;
+  <img src="docs/images/tx_inside.jpg" alt="Inside the TX remote" width="260">
+  &nbsp;
+  <img src="docs/images/rx_inside.jpg" alt="Inside the RX unit" width="230">
+</p>
 
 | Part | TX | RX |
 |---|---|---|
