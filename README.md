@@ -33,9 +33,9 @@ The RX unit is built around:
 - 1000 µF capacitor on the 5 V rail to handle the servo's current spikes
 
 <p align="center">
-  <img src="docs/images/tx_inside.jpg" alt="Inside the TX remote" width="300">
+  <img src="docs/images/tx_inside.jpg" alt="Inside the TX remote" height="300">
   &nbsp;&nbsp;
-  <img src="docs/images/rx_inside.jpg" alt="Inside the RX unit" width="270">
+  <img src="docs/images/rx_inside.jpg" alt="Inside the RX unit" height="300">
 </p>
 
 ## PCB Design
