@@ -13,7 +13,7 @@
 const int SERVO_PIN = D2;
 const int BOOST_EN = D3;      //turns on the 5v boost for the servo
 
-//servo angles, not tested yet
+//servo angles, the arm is set on the horn so TAP_ANGLE touches the screen
 const int REST_ANGLE = 0;
 const int TAP_ANGLE = 50;
 const int MOVE_TIME = 300;    //time for the servo to get there
