@@ -1,6 +1,6 @@
 # Wireless Kindle Page Turner
 
-Compact wireless page-turning device built on two ESP32-C3 boards, custom PCBs, servo actuation, and a 3D-printed enclosure.
+Wireless page turner for a Kindle Paperwhite, built with two custom ESP32-C3 PCBs, a servo arm, and 3D-printed enclosures.
 
 <p align="center">
   <img src="docs/images/main.jpg" alt="Page turner clipped to a Kindle with the remote" width="560">
@@ -12,94 +12,82 @@ Compact wireless page-turning device built on two ESP32-C3 boards, custom PCBs, 
 
 ## Overview
 
-This is a wireless assistive device that turns Kindle pages without the user touching the screen. A handheld **TX** remote sends a Bluetooth Low Energy (BLE) command to an **RX** unit clipped to the side of the Kindle. The RX unit drives a servo arm that taps the screen with a grounded conductive stylus tip.
-
-## System Block Diagram
+The system has two parts: a handheld remote (TX) and a unit that clips onto the side of the Kindle (RX). Pressing the button sends a Bluetooth Low Energy command to the RX, which swings a servo arm down to tap the screen. The stylus tip on the arm is wired to ground so the touchscreen registers the tap.
 
 ## Hardware
 
-### TX Board
+The TX remote is built around:
+
 - Seeed Studio XIAO ESP32-C3
 - Omron B3F-4000 push button
-- 3.7 V 702030 LiPo, charged over USB-C by the XIAO
+- 400 mAh LiPo, charged over USB-C
 
-### RX Board
+The RX unit is built around:
+
 - Seeed Studio XIAO ESP32-C3
-- Adafruit MiniBoost 5V 1A (TPS61023), enabled from D3
-- 3.7 V 603450 LiPo with a KCD11 power switch
-- TowerPro SG92R micro servo on D2
-- 1000 µF bulk capacitor on the 5 V servo rail
-- Conductive stylus tip wired to ground
+- Adafruit MiniBoost 5V 1A to power the servo, enabled from D3
+- 1200 mAh LiPo with a KCD11 power switch
+- TowerPro SG92R micro servo
+- 1000 µF capacitor on the 5 V rail to handle the servo's current spikes
 
-### PCB Design (Altium Designer)
-- Two-layer layouts with ground planes
-- Custom footprints
-- Power management for servo loads
+<p align="center">
+  <img src="docs/images/tx_inside.jpg" alt="Inside the TX remote" width="300">
+  &nbsp;&nbsp;
+  <img src="docs/images/rx_inside.jpg" alt="Inside the RX unit" width="270">
+</p>
+
+## PCB Design
+
+I designed both boards in Altium Designer. They are two-layer boards with ground pours and a few custom footprints.
 
 | Board | Schematic | Altium project | Gerbers | BOM |
 |---|---|---|---|---|
 | TX | [`tx_schematic.pdf`](hardware/pcb/tx/tx_schematic.pdf) | [`tx/altium/`](hardware/pcb/tx/altium/) | [`tx_gerbers.zip`](hardware/pcb/tx/tx_gerbers.zip) | [`tx_bom.xlsx`](hardware/pcb/tx/tx_bom.xlsx) |
 | RX | [`rx_schematic.pdf`](hardware/pcb/rx/rx_schematic.pdf) | [`rx/altium/`](hardware/pcb/rx/altium/) | [`rx_gerbers.zip`](hardware/pcb/rx/rx_gerbers.zip) | [`rx_bom.xlsx`](hardware/pcb/rx/rx_bom.xlsx) |
 
-Shared schematic/footprint libraries: [`hardware/pcb/libraries/`](hardware/pcb/libraries/). `Kindle_Custom.PcbLib` and `SolderPad.SchLib` are custom; the XIAO ESP32-C3 library is from Seeed Studio and the MiniBoost library is from Adafruit.
+Libraries are in [`hardware/pcb/libraries/`](hardware/pcb/libraries/). `Kindle_Custom.PcbLib` and `SolderPad.SchLib` are custom. The XIAO library is from Seeed Studio and the MiniBoost library is from Adafruit.
 
 ## Enclosure
 
-Both enclosures were 3D printed in PLA on a Bambu Lab printer. All parts print without supports.
+Both enclosures were 3D printed in PLA and print without supports.
 
-**TX remote:** a rounded handheld case with finger grooves on the sides, a thumb recess around the button, and a press-fit lid. The battery sits under the PCB.
-
-**RX unit:** clips onto the right edge of the Kindle (Paperwhite 11th gen in a case), lined with felt for grip. The electronics box sits behind the Kindle, and the servo is mounted outside the edge with a hook-shaped arm that reaches over the bezel to tap the screen. The lid snaps into grooves in the box.
+The RX unit clips onto the right edge of the Kindle, with felt inside the clip for grip. The electronics sit in a box behind the Kindle, and the servo is mounted just outside the edge. The arm is hook-shaped so it reaches over the bezel and taps the screen.
 
 <p align="center">
   <img src="docs/images/rx_side.jpg" alt="RX unit on the edge of the Kindle" width="620">
 </p>
 
+The TX remote is shaped to be held in one hand, with finger grooves on the sides and a recess around the button.
+
 <p align="center">
-  <img src="docs/images/remote_hand.jpg" alt="TX remote in hand" width="230">
-  &nbsp;
-  <img src="docs/images/tx_inside.jpg" alt="Inside the TX remote" width="260">
-  &nbsp;
-  <img src="docs/images/rx_inside.jpg" alt="Inside the RX unit" width="230">
+  <img src="docs/images/remote_hand.jpg" alt="TX remote in hand" width="260">
 </p>
 
-| Part | TX | RX |
-|---|---|---|
-| Case | [`tx_tray.stl`](hardware/enclosure/tx/tx_tray.stl) | [`rx_body.stl`](hardware/enclosure/rx/rx_body.stl) |
-| Lid | [`tx_lid.stl`](hardware/enclosure/tx/tx_lid.stl) | [`rx_lid.stl`](hardware/enclosure/rx/rx_lid.stl) |
-| Other | [`tx_button.stl`](hardware/enclosure/tx/tx_button.stl) | [`rx_arm.stl`](hardware/enclosure/rx/rx_arm.stl) |
+Final print files:
+
+- TX: [`tx_tray.stl`](hardware/enclosure/tx/tx_tray.stl), [`tx_lid.stl`](hardware/enclosure/tx/tx_lid.stl), [`tx_button.stl`](hardware/enclosure/tx/tx_button.stl)
+- RX: [`rx_body.stl`](hardware/enclosure/rx/rx_body.stl), [`rx_lid.stl`](hardware/enclosure/rx/rx_lid.stl), [`rx_arm.stl`](hardware/enclosure/rx/rx_arm.stl)
 
 The idea of a servo arm clipped to the edge of the Kindle came from [Kindle Page Turner](https://www.thingiverse.com/thing:3039314) by alexmikes on Thingiverse! The enclosures here were designed from scratch.
 
 ## Firmware
 
-Written in Arduino for the XIAO ESP32-C3.
+The remote spends most of its time in deep sleep. A button press wakes it up, it connects to the RX over BLE, and sends a tap command. It then stays connected for one minute so the next presses are fast, and goes back to sleep.
 
-- **TX** ([`tx.ino`](firmware/tx/tx.ino)): stays in deep sleep until the button wakes it. It then connects to the RX over BLE, sends a tap command, and stays connected for one minute so the next presses are instant before going back to sleep.
-- **RX** ([`rx.ino`](firmware/rx/rx.ino)): advertises as a BLE server, enables the boost converter, and moves the servo to the tap angle and back when a command arrives. The servo is detached between taps to avoid buzzing and save power.
+The RX waits for commands from the remote and moves the servo to the tap angle and back. The servo is turned off between taps so it doesn't buzz or waste power.
 
-Requires the ESP32 board package and the ESP32Servo library.
+Final code: [`tx.ino`](firmware/tx/tx.ino), [`rx.ino`](firmware/rx/rx.ino)
 
-## Results
+## Testing
 
 | Metric | Result | Notes |
 |---|---:|---|
-| TX standby current | 50 µA | Deep sleep, measured in series with the battery |
-| TX standby life (estimate) | ~8 months | Sleep only, 70% of a 400 mAh battery at 50 µA |
-| RX idle current | 30 mA | BLE advertising, servo detached |
-| RX run time (estimate) | ~28 hours | 70% of a 1200 mAh battery at 30 mA |
-| Page-turn success rate | 50 / 50 (100%) | Consecutive button presses |
-| Button-to-tap latency | ~0.2 s / ~1.2 s | While connected / from sleep, measured from slow-motion video |
+| Page-turn success rate | **50/50 (100%)** | Consecutive button presses |
+| Button-to-tap latency | ~0.2 s / ~1.2 s | While connected / from sleep |
 | Wireless range | > 35 m | |
+| TX standby current | 50 µA | Deep sleep |
+| TX standby life | ~8 months | Estimate, sleep only |
+| RX idle current | 30 mA | Waiting for the remote |
+| RX run time | ~28 hours | Estimate |
 
-## Project Status
-
-**Completed**
-- TX and RX PCB design, fabrication and assembly
-- TX and RX firmware with BLE link and deep sleep
-- 3D-printed TX and RX enclosures
-
-**Next**
-- Mount the RX from the top edge of the Kindle to carry more of the weight
-- Enlarge some holes in the RX enclosure
-- Lower RX power use with BLE power saving and by turning the boost converter off between taps
+Latency was measured from slow-motion video by timing the button click and the start of the servo movement. Most of the delay on the first press comes from the remote waking up and reconnecting, which is why it stays connected for a minute afterwards. Battery life estimates assume 70% of the rated battery capacity is usable.
