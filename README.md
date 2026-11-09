@@ -73,8 +73,8 @@ Requires the ESP32 board package and the ESP32Servo library.
 | RX idle current | 30 mA | BLE advertising, servo detached |
 | RX run time (estimate) | ~40 hours | 1200 mAh battery at 30 mA |
 | Page-turn success rate | 50 / 50 (100%) | Consecutive button presses |
-| Button-to-turn latency | | First press vs. while connected |
-| Wireless range | > 10 m | Tested indoors |
+| Button-to-turn latency | ~1 s / < 0.35 s | From sleep / while connected, estimated from 240 fps video |
+| Wireless range | > 35 m | |
 
 ## Project Status
 
