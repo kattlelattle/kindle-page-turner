@@ -87,9 +87,9 @@ Final code: [`tx.ino`](firmware/tx/tx.ino), [`rx.ino`](firmware/rx/rx.ino)
 | Page-turn success rate | **50/50 (100%)** | Consecutive button presses |
 | Button-to-tap latency | ~0.2 s / ~1.2 s | While connected / from sleep |
 | Wireless range | > 35 m | |
-| TX standby current | 50 µA | Deep sleep |
-| TX standby life | ~8 months | Estimate, sleep only |
-| RX idle current | 30 mA | Waiting for the remote |
-| RX run time | ~28 hours | Estimate |
+| TX standby current | 50 µA | Deep sleep, measured in series with the battery |
+| TX standby life | ~8 months | Calculated from the sleep current and 70% of a 400 mAh battery |
+| RX idle current | 30 mA | Waiting for the remote, measured in series with the battery |
+| RX run time | ~28 hours | Calculated from the idle current and 70% of a 1200 mAh battery |
 
-Latency was measured from slow-motion video by timing the button click and the start of the servo movement. Most of the delay on the first press comes from the remote waking up and reconnecting, which is why it stays connected for a minute afterwards. Battery life estimates assume 70% of the rated battery capacity is usable.
+Latency was measured from slow-motion video by timing the button click against the start of the servo movement. Most of the delay on the first press comes from the remote waking up and reconnecting, which is why it stays connected for a minute after each press.
