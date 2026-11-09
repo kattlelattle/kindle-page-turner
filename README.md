@@ -85,7 +85,7 @@ Final code: [`tx.ino`](firmware/tx/tx.ino), [`rx.ino`](firmware/rx/rx.ino)
 | Metric | Result | Notes |
 |---|---:|---|
 | Page-turn success rate | **50/50 (100%)** | Consecutive button presses |
-| Button-to-tap latency | ~0.2 s / ~1.2 s | While connected / from sleep |
+| Button-to-tap latency | ~0.2 s / ~1.1 s | While connected / from sleep |
 | Wireless range | > 35 m | |
 | TX standby current | 50 µA | Deep sleep, measured in series with the battery |
 | TX standby life | ~8 months | Calculated from the sleep current and 70% of a 400 mAh battery |
