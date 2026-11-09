@@ -8,7 +8,8 @@ Wireless page turner for a Kindle Paperwhite, built with two custom ESP32-C3 PCB
 
 ## Demo
 
-[Watch the demo video](docs/demo.mp4): the remote turns pages on a Kindle Paperwhite!
+https://github.com/user-attachments/assets/5dd0aaf3-1f02-4f95-8dad-e84fb184d603
+Remote turns pages on a Kindle Paperwhite!
 
 ## Overview
 
