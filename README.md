@@ -1,6 +1,3 @@
-
-
-
 # Wireless Kindle Page Turner
 
 Wireless page turner for a Kindle Paperwhite, built with two custom ESP32-C3 PCBs, a servo arm, and 3D-printed enclosures.
