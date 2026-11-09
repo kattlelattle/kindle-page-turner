@@ -69,11 +69,11 @@ Requires the ESP32 board package and the ESP32Servo library.
 | Metric | Result | Notes |
 |---|---:|---|
 | TX standby current | 50 µA | Deep sleep, measured in series with the battery |
-| TX standby life (estimate) | ~11 months | 400 mAh battery at 50 µA |
+| TX standby life (estimate) | ~8 months | Sleep only, 70% of a 400 mAh battery at 50 µA |
 | RX idle current | 30 mA | BLE advertising, servo detached |
-| RX run time (estimate) | ~40 hours | 1200 mAh battery at 30 mA |
+| RX run time (estimate) | ~28 hours | 70% of a 1200 mAh battery at 30 mA |
 | Page-turn success rate | 50 / 50 (100%) | Consecutive button presses |
-| Button-to-turn latency | ~1 s / < 0.35 s | From sleep / while connected, estimated from 240 fps video |
+| Button-to-tap latency | ~0.2 s / ~1.2 s | While connected / from sleep, measured from slow-motion video |
 | Wireless range | > 35 m | |
 
 ## Project Status
