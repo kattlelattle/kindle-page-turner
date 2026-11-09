@@ -1,6 +1,5 @@
 
 
-https://github.com/user-attachments/assets/005c4c3e-adc7-4732-a902-e92238955ff8
 
 # Wireless Kindle Page Turner
 
